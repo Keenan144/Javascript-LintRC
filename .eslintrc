@@ -1,0 +1,52 @@
+{
+  "extends": "react-app",
+  "plugins": ["json", "no-only-tests", "react-hooks"],
+  "rules": {
+    "react/jsx-key": ["error", { "checkFragmentShorthand": true }],
+    "react/no-array-index-key": "error",
+    "no-console": ["error", { "allow": ["debug", "error", "warn"] }],
+    "complexity": ["error", { "max": 3 }],
+    "default-case": "error",
+    "no-unused-vars": "error",
+    "eqeqeq": ["error", "always"],
+    "no-magic-numbers": "error",
+    "vars-on-top": "error",
+    "max-params": ["error", 3],
+    "max-nested-callbacks": ["error", 3],
+    "no-unneeded-ternary": "error",
+    "max-lines": ["error", { "max": 500, "skipBlankLines": true }],
+    "max-depth": ["error", 4],
+    "no-only-tests/no-only-tests": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.js", "**/*.spec.js"],
+      "rules": {
+        "max-lines-per-function": [
+          "error",
+          { "max": 750, "skipBlankLines": true, "skipComments": true }
+        ],
+        "no-magic-numbers": 0,
+        "max-nested-callbacks": ["error", 4]
+      }
+    },
+    {
+      "files": ["src/server/routes/**/*.js"],
+      "rules": {
+        "max-params": ["error", 4]
+      }
+    },
+    {
+      "files": [
+        "src/client/components/pages/Survey/DefineSpace/DefineSpace/context/index.js",
+        "src/client/**/*.storybook.js"
+      ],
+      "rules": {
+        "max-lines-per-function": [
+          "error",
+          { "max": 60, "skipBlankLines": true, "skipComments": true }
+        ]
+      }
+    }
+  ]
+}
